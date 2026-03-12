@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Input Live Display</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function TextDisplay() {
+
+  const [text, setText] = React.useState("");
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  return (
+    <div style={{textAlign:"center", marginTop:"50px"}}>
+      <h2>Text Input Live Display</h2>
+
+      <input
+        type="text"
+        placeholder="Type something..."
+        value={text}
+        onChange={handleChange}
+      />
+
+      <p>You typed → {text}</p>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<TextDisplay />);
+
+</script>
+
+</body>
+</html>
